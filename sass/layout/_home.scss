@@ -1,0 +1,57 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+@use '../components/downloadbutton';
+
+.home{
+ position: realtive;
+ @include pad;
+ width: 100%;
+ min-width: 300px;
+ height: 100vh;
+ 
+    &:before{
+	 content: "";
+	 width: 2px;
+	 height: 100%;
+	 background: $primary;
+	 position: absolute;
+	 right: 20px;
+	 top: 100px;
+	 
+	}
+	
+    &:after{
+	 content: "<";
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 width: 40px;
+	 height: 40px;
+	 border-radius: 50%;
+	 background: $primary-button;
+	 position: absolute;
+	 right: 0;
+	 top: 50%;
+	}
+
+ 
+    .home__heading{
+	 min-width: 300px;
+	 font-style: normal;
+	 font-weight: 700;
+	 font-size: 64px;
+	 line-height: 96px;
+	 color: $primary;
+	}
+	
+	.home__paragraph{
+	 min-width: 300px;
+	 font-style: normal;
+	 font-weight: 400;
+	 font-size: 32px;
+	 line-height: 48px;
+	 color: $primary;
+	}
+	
+	
+}

@@ -1,0 +1,25 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+@media only screen and (max-width: 900px){
+/*header*/
+.header__bars{
+ display: block !important;
+}
+.nav{
+ position: absolute;
+ top: 100px;
+ left: 0;
+ width: 100%;
+ height: 500px;
+ min-width: 300px;
+ padding: 10px;
+ background: $accent;
+ display: none; /*remove */
+ 
+   .nav__list{
+    flex-direction: column;
+   }
+}
+
+}

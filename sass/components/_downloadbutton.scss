@@ -1,0 +1,62 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+
+.home__download-link{
+	 position: relative;
+	 text-align: center;
+	 font-style: normal;
+	 font-weight: 700;
+	 font-size: 32px;
+	 line-height: 48px;
+	 color: $primary;
+	 text-decoration: none;
+	 display: inline-block;
+	 padding-top: 18px;
+	 margin-top: 50px;
+	 width: 250px;
+	 height: 80px;
+	 background: $primary-button;
+	 transition: all 0.3s ease-in-out;
+	    
+		&:before{
+		 content: "";
+		 position: absolute;
+		 top: 0;
+		 left: 0;
+		 width: 0;
+		 height: 0;
+		 opacity: 0;
+		 border-top: 1px solid $primary;
+		 border-left: 1px solid $primary;
+		 transition: all 0.3s ease-in-out;
+		 
+		}
+		&:after{
+		 content: "";
+		 position: absolute;
+		 bottom: 0;
+		 right: 0;
+		 width: 0;
+		 height: 0;
+		 opacity: 0;
+		 border-bottom: 1px solid $primary;
+		 border-right: 1px solid $primary;
+		 transition: all 0.3s ease-in-out;
+		 
+		}
+		
+		&:hover:before{
+		 width: 99%;
+		 height: 99%;
+		 opacity: 1;
+		 transition: all 0.5s ease-in-out;
+		}
+		
+		&:hover:after{
+		 width: 99%;
+		 height: 99%;
+		 opacity: 1;
+		 transition: all 0.5s ease-in-out;
+		}
+	}

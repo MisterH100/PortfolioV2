@@ -1,0 +1,60 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.portfolio{
+position: relative;
+@include pad;
+ width: 100%;
+ min-width: 300px;
+ 
+    &:before{
+	 content: "";
+	 width: 2px;
+	 height: 100%;
+	 background: $primary;
+	 position: absolute;
+	 right: 20px;
+	 top: 0;
+	 
+	}
+	
+    &:after{
+	 content: "<";
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 width: 40px;
+	 height: 40px;
+	 border-radius: 50%;
+	 background: $primary-button;
+	 position: absolute;
+	 right: 0;
+	 top: 40%;
+	}
+ 
+	.portfolio__heading{
+	 font-style: normal;
+	 font-weight: 500;
+	 font-size: 32px;
+     line-height: 48px;
+	 color: $primary;
+	}
+	
+	.portfolio__sub-heading{
+	 font-style: normal;
+	 font-weight: 500;
+	 font-size: 64px;
+	 line-height: 96px;
+	 color: $primary;
+	}
+	
+	.portfolio__wrapper{
+	 @include flex;
+	 flex-wrap: wrap;
+	}
+	.porfolio__iframe{
+	 width: 300px;
+	 height: 150px;
+	 margin-bottom: 50px;
+	}
+}
