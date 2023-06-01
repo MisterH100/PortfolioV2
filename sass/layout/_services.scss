@@ -1,5 +1,6 @@
 @use '../abstract/variables' as *;
 @use '../abstract/mixins' as *;
+@use '../abstract/animations' as *;
 
 .services{
 position: relative;
@@ -39,6 +40,8 @@ position: relative;
 	 font-size: 32px;
 	 line-height: 48px;
 	 color: $primary;
+     opacity: 0;
+	 transition: all 1s linear;
 	}
 	
 	.services__sub-heading{
@@ -47,6 +50,8 @@ position: relative;
 	 font-size: 64px;
 	 line-height: 96px;
 	 color: $primary;
+     opacity: 0;
+	 transition: all 1s linear;
 	}
 	
 	.services__wrapper{
@@ -61,6 +66,7 @@ position: relative;
 	 padding: 20px;
 	 margin-bottom: 20px;
 	 background: $primary-button;
+	 opacity: 0;
 	 
 	    i{
 		 display: inline-block;
@@ -71,9 +77,9 @@ position: relative;
 		}
 		
 		span{
-		 display: inline-block;
+		 display: block;
 		 height: 40px;
-		 font-weight: 400;
+		 font-weight: 600;
 	     font-size: 14px;
 	     line-height: 28px;
 	     color: $primary;

@@ -38,6 +38,8 @@ position: relative;
 	 font-size: 32px;
      line-height: 48px;
 	 color: $primary;
+     opacity: 0;
+	 transition: all 0.5s linear;
 	}
 	
 	.portfolio__sub-heading{
@@ -46,6 +48,8 @@ position: relative;
 	 font-size: 64px;
 	 line-height: 96px;
 	 color: $primary;
+	 opacity: 0;
+	 transition: all 0.5s linear;
 	}
 	
 	.portfolio__wrapper{

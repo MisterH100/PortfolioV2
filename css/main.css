@@ -8,6 +8,7 @@ html {
 body {
   background: rgb(0, 8, 20);
   color: rgb(255, 251, 229);
+  min-width: 350px;
 }
 
 * {
@@ -33,6 +34,10 @@ body {
   height: 80px;
   background: rgb(222, 2, 2);
   transition: all 0.3s ease-in-out;
+}
+.home__download-link:hover {
+  animation: pulse;
+  animation-duration: 1s;
 }
 .home__download-link:before {
   content: "";
@@ -74,7 +79,7 @@ body {
 .header {
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   min-width: 350px;
   height: 100px;
@@ -88,6 +93,9 @@ body {
   color: rgb(222, 2, 2);
   text-decoration: none;
 }
+.header .nav, .header .nav__list, .header .nav__item {
+  height: 100%;
+}
 .header .nav__list {
   display: flex;
   justify-content: space-between;
@@ -95,13 +103,32 @@ body {
   gap: 20px;
   list-style: none;
 }
+.header .nav__list .nav__item {
+  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s linear;
+}
+.header .nav__list .nav__item:hover {
+  transform: translateY(-4px);
+  color: rgb(222, 2, 2);
+  transition: transform 0.3s linear;
+}
 .header .nav__list .nav__item a {
   color: rgb(255, 251, 229);
+  height: 100%;
   text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   transition: color 0.5s linear;
 }
 .header .nav__list .nav__item a:hover {
   color: rgb(222, 2, 2);
+  border-bottom: 2px solid rgb(222, 2, 2);
   transition: color 0.3s linear;
 }
 .header .header__bars {
@@ -113,8 +140,26 @@ body {
   font-size: 2rem;
 }
 
+.active {
+  border-bottom: 1px solid red;
+}
+
+.zoom-in-entrace {
+  animation: zoomIn;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+  opacity: 1 !important;
+}
+
+.fade-in-entrance {
+  animation: fadeInLeft;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  opacity: 1 !important;
+}
+
 .home {
-  position: realtive;
+  position: relative;
   padding: 120px 8%;
   width: 100%;
   min-width: 300px;
@@ -127,7 +172,7 @@ body {
   background: rgb(255, 251, 229);
   position: absolute;
   right: 20px;
-  top: 100px;
+  top: 0;
 }
 .home:after {
   content: "<";
@@ -149,14 +194,18 @@ body {
   font-size: 64px;
   line-height: 96px;
   color: rgb(255, 251, 229);
+  opacity: 0;
+  transition: all 1s linear;
 }
 .home .home__paragraph {
   min-width: 300px;
   font-style: normal;
   font-weight: 400;
-  font-size: 32px;
+  font-size: 20px;
   line-height: 48px;
   color: rgb(255, 251, 229);
+  opacity: 0;
+  transition: all 1s linear;
 }
 
 .services {
@@ -194,6 +243,8 @@ body {
   font-size: 32px;
   line-height: 48px;
   color: rgb(255, 251, 229);
+  opacity: 0;
+  transition: all 1s linear;
 }
 .services .services__sub-heading {
   font-style: normal;
@@ -201,6 +252,8 @@ body {
   font-size: 64px;
   line-height: 96px;
   color: rgb(255, 251, 229);
+  opacity: 0;
+  transition: all 1s linear;
 }
 .services .services__wrapper {
   display: flex;
@@ -215,6 +268,7 @@ body {
   padding: 20px;
   margin-bottom: 20px;
   background: rgb(222, 2, 2);
+  opacity: 0;
 }
 .services .services__article i {
   display: inline-block;
@@ -223,9 +277,9 @@ body {
   color: rgb(255, 251, 229);
 }
 .services .services__article span {
-  display: inline-block;
+  display: block;
   height: 40px;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 14px;
   line-height: 28px;
   color: rgb(255, 251, 229);
@@ -282,6 +336,8 @@ body {
   font-size: 32px;
   line-height: 48px;
   color: rgb(255, 251, 229);
+  opacity: 0;
+  transition: all 0.5s linear;
 }
 .portfolio .portfolio__sub-heading {
   font-style: normal;
@@ -289,6 +345,8 @@ body {
   font-size: 64px;
   line-height: 96px;
   color: rgb(255, 251, 229);
+  opacity: 0;
+  transition: all 0.5s linear;
 }
 .portfolio .portfolio__wrapper {
   display: flex;
@@ -338,6 +396,8 @@ body {
   font-size: 32px;
   line-height: 48px;
   color: rgb(255, 251, 229);
+  opacity: 0;
+  transition: all 0.5s linear;
 }
 .contact .contact__sub-heading {
   font-style: normal;
@@ -345,6 +405,8 @@ body {
   font-size: 64px;
   line-height: 96px;
   color: rgb(255, 251, 229);
+  opacity: 0;
+  transition: all 0.5s linear;
 }
 .contact .contact__wrapper {
   display: flex;
@@ -405,24 +467,44 @@ body {
   transition: all 0.5s ease-in-out;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 750px) {
   /*header*/
   .header__bars {
     display: block !important;
   }
   .nav {
     position: absolute;
-    top: 100px;
+    top: 0;
     left: 0;
+    z-index: 2;
     width: 100%;
     height: 500px;
+    transform: translateY(-500px);
+    overflow: hidden;
     min-width: 300px;
     padding: 10px;
     background: rgb(0, 53, 102);
-    display: none; /*remove */
+    transition: transform 0.2s linear;
+    visibility: hidden;
   }
   .nav .nav__list {
     flex-direction: column;
+  }
+  /*nav toggle*/
+  .nav__toggle {
+    visibility: visible !important;
+    transform: translateY(100px);
+    transition: transform 0.5s linear;
+  }
+  /*progress bar*/
+  .home:before, .services:before, .portfolio:before, .contact:before {
+    display: none;
+  }
+  .home:after, .services:after, .portfolio:after, .contact:after {
+    display: none;
+  }
+  .home__download-link {
+    margin-top: 40px;
   }
 }
 

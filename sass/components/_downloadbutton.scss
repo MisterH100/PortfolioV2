@@ -2,7 +2,7 @@
 @use '../abstract/mixins' as *;
 
 
-.home__download-link{
+    .home__download-link{
 	 position: relative;
 	 text-align: center;
 	 font-style: normal;
@@ -18,6 +18,11 @@
 	 height: 80px;
 	 background: $primary-button;
 	 transition: all 0.3s ease-in-out;
+	 
+	     &:hover{
+		 animation: pulse;
+		 animation-duration: 1s;
+		 }
 	    
 		&:before{
 		 content: "";

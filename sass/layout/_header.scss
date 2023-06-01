@@ -4,7 +4,7 @@
 .header{
 position: sticky;
 top: 0;
-z-index: 2;
+z-index: 3;
 width: 100%;
 min-width: 350px;
 height: 100px;
@@ -17,20 +17,41 @@ background: $accent;
 	 text-decoration: none;
 	}
     
+	.nav, .nav__list, .nav__item{
+	 height: 100%;
+	}
 	.nav__list{
 	 @include flex;
 	 gap: 20px;
 	 list-style: none;
-	 
+	    
+		.nav__item{
+		 display: inline-block;
+		 @include flex;
+		 justify-content: center;
+		 transition: transform 0.5s linear;
+		 
+			&:hover{
+			  transform:translateY(-4px);
+			  color: $primary-button;
+			  transition: transform 0.3s linear;
+			 }
+		}
+		
        .nav__item a{
 	     color: $primary;
+		 height: 100%;
 		 text-decoration: none;
+		 @include flex;
+		 justify-content: center;
 		 transition: color 0.5s linear;
 		   
 		    &:hover{
 			 color: $primary-button;
+			 border-bottom: 2px solid $primary-button;
 			 transition: color 0.3s linear;
 			}
+			
 	   }
 	}
 	
@@ -43,3 +64,8 @@ background: $accent;
 	 font-size: 2rem;
 	}
 }
+
+.active{
+ border-bottom: 1px solid red;
+}
+	

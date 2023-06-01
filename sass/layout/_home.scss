@@ -1,9 +1,10 @@
 @use '../abstract/variables' as *;
 @use '../abstract/mixins' as *;
 @use '../components/downloadbutton';
+@use '../abstract/animations' as *;
 
 .home{
- position: realtive;
+ position: relative;
  @include pad;
  width: 100%;
  min-width: 300px;
@@ -16,7 +17,7 @@
 	 background: $primary;
 	 position: absolute;
 	 right: 20px;
-	 top: 100px;
+	 top: 0;
 	 
 	}
 	
@@ -42,15 +43,19 @@
 	 font-size: 64px;
 	 line-height: 96px;
 	 color: $primary;
+	opacity: 0;
+	 transition: all 1s linear;
 	}
 	
 	.home__paragraph{
 	 min-width: 300px;
 	 font-style: normal;
 	 font-weight: 400;
-	 font-size: 32px;
+	 font-size: 20px;
 	 line-height: 48px;
 	 color: $primary;
+	 opacity: 0;
+	 transition: all 1s linear;
 	}
 	
 	
