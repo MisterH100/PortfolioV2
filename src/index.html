@@ -107,6 +107,31 @@
  <a href="https://github.com/MisterH100" target="_blank" class="contact__link">MisterH</a>
 </article>
 
+<form class="contact__form" id="contactForm">
+ <h1 class="form__heading">Send a message</h1>
+ <label for="name">Name:<br>
+    <input type="text" name="name" id="name" placeholder="enter name_" required/>
+ </label>
+  <label for="email">Email:<br>
+    <input type="email" name="email" id="email" placeholder="enter E-mail_" required/>
+ </label>
+  <label for="phone">Phone:<br>
+    <input type="tel" name="name" id="phone" placeholder="enter phone number_"/>
+ </label>
+  <label for="message">Message:
+    <textarea
+	name="message" 
+	id="message" 
+	form="contactForm" 
+	maxlength="200"
+	placeholder="write message(max 200)" required
+	></textarea>
+	<span class="maxcharacter">max-characters: </span><span class="maxlength">200</span>
+ </label>
+ <input type="submit" value="submit">
+ 
+</form>
+
 <div>
 
 </div>

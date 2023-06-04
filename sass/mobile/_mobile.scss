@@ -1,6 +1,27 @@
 @use '../abstract/variables' as *;
 @use '../abstract/mixins' as *;
 
+@media only screen and (max-width: 1300px){
+/*form*/
+.contact__form{
+ top: 600px !important;
+ left: 30%;
+ transition: all 0.5s linear;
+ 
+    label,input{
+	width: 100% !important;
+	}
+	
+	label[for="phone"]{
+	margin-left: 0 !important;
+
+	}
+
+}
+
+}
+
+
 @media only screen and (max-width: 750px){
 
 /*header*/
@@ -51,6 +72,23 @@
 
 .home__download-link{
  margin-top: 40px;
+}
+
+
+/*form*/
+.contact__form{
+ left: 8%;
+ top: 600px !important;
+ transition: all 0.5s linear;
+  
+	label,input{
+	width: 100% !important;
+	}
+	
+	label[for="phone"]{
+	margin-left: 0 !important;
+	}
+	
 }
 
 }

@@ -17,9 +17,6 @@ background: $accent;
 	 text-decoration: none;
 	}
     
-	.nav, .nav__list, .nav__item{
-	 height: 100%;
-	}
 	.nav__list{
 	 @include flex;
 	 gap: 20px;

@@ -3,6 +3,8 @@ const headerLogo = document.querySelector(".header__heading");
 const navMenu = document.querySelector(".nav");
 const navItems = document.querySelectorAll(".nav__item");
 const navLinks = document.querySelectorAll("li a");
+const textArea = document.querySelector("#message");
+const maxLength = document.querySelector(".maxlength");
 
 //toggle nav when nav bars are clicked
 navToggle.addEventListener("click", () => {
@@ -22,6 +24,7 @@ navToggle.addEventListener("click", () => {
 //toggle nav when nav items are clicked
 navItems.forEach((item) =>{
 	item.addEventListener("click", () =>{
+		navToggle.classList.remove("fa-xmark");
 		navToggle.classList.add("fa-bars");
 		navMenu.classList.remove("nav__toggle");
 		
@@ -29,12 +32,30 @@ navItems.forEach((item) =>{
 
 });
 
-// scroll to
-navLinks.forEach(link =>{ 
-link.addEventListener("click", () =>{
-	link.href = link.href;
+//form text Area
+const maxCharsLength = 200;
+
+function maxCharsCount(){
+	chars = textArea.value.length;
+	charsLeft = maxCharsLength - chars;
+	maxLength.innerText = charsLeft;
+	
+	if(charsLeft <= 50){
+		maxLength.style.opacity = "1";
+		maxLength.innerText = charsLeft +  " !";
+	}
+	else{
+		maxLength.style.opacity = "0.5";
+		maxLength.innerText = charsLeft;	
+	}
+	
+}
+
+
+textArea.addEventListener("keyup", () =>{
+	maxCharsCount();
 });
-})
+
 
 //intersection observers
 const homeHeading = document.querySelector(".home__heading");
@@ -50,8 +71,9 @@ const portfolioSubHeading = document.querySelector(".portfolio__sub-heading");
 
 const contactHeading = document.querySelector(".contact__heading");
 const contactSubHeading = document.querySelector(".contact__sub-heading");
+const contactForm = document.querySelector(".contact__form");
 
-//heading
+//heading obsever
 const headingObserver = new IntersectionObserver(entries =>{
 	entries.forEach(entry =>{
 	entry.target.classList.toggle("fade-in-entrance", entry.isIntersecting)
@@ -61,7 +83,7 @@ const headingObserver = new IntersectionObserver(entries =>{
 {threshold: 0.5,}
 )
 
-//paragraph
+//paragraph obsever
 const paragraphObserver = new IntersectionObserver(entries =>{
 	entries.forEach(entry =>{
 	entry.target.classList.toggle("fade-in-entrance", entry.isIntersecting)
@@ -70,7 +92,7 @@ const paragraphObserver = new IntersectionObserver(entries =>{
 },
 {threshold: 0.5,}
 )
-//cards
+//card obsever
 const cardObserver = new IntersectionObserver(entries =>{
 	entries.forEach(entry =>{
 	entry.target.classList.toggle("zoom-in-entrace", entry.isIntersecting)
@@ -91,6 +113,7 @@ servicesArticles.forEach(servicesArticle =>{
 	cardObserver.observe(servicesArticle);
 })
 
+cardObserver.observe(contactForm);
 
 headingObserver.observe(portfolioHeading);
 headingObserver.observe(portfolioSubHeading);
